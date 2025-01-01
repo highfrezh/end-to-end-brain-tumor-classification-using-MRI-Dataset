@@ -6,3 +6,15 @@ data_ingestion:
   source_URL: https://drive.google.com/uc?id=1bV7SN4v2KaX5IN3w6LbVMazs_ooeFfST&export=download
   local_data_file: artifacts/data_ingestion/data.zip
   unzip_dir: artifacts/data_ingestion
+
+prepare_base_model:
+  root_dir: artifacts/prepare_base_model
+  base_model_path: artifacts/prepare_base_model/base_model.h5
+  updated_base_model_path: artifacts/prepare_base_model/base_model_updated.h5
+
+
+
+training:
+  root_dir: artifacts/training
+  trained_model_path: artifacts/training/model.h5
+  split_dir: artifacts/split_data
