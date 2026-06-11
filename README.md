@@ -1,125 +1,118 @@
-# end-to-end-brain-tumor-classification-using-MRI-Dataset
+# Brain Tumor Classification using MRI Scans
 
-## Workflows
+**End-to-End Deep Learning Project** for multi-class brain tumor detection from MRI images using **Transfer Learning (VGG16)**.
 
-1. Update config.yaml
-3. Update params.yaml
-4. Update the entity
-5. Update the configuration manager in src config
-6. Update the components
-7. Update the pipeline 
-8. Update the main.py
-9. Update the app.py
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 
+---
 
+## 📋 Project Overview
 
-# How to run?
-### STEPS:
+This project implements a complete **end-to-end CNN-based system** to classify brain tumors into four categories:
+- Glioma
+- Meningioma
+- Pituitary Tumor
+- No Tumor
 
-Clone the repository
+The model leverages **VGG16 transfer learning** and is built with a modular MLOps pipeline, including training, evaluation, and web deployment.
 
-```bash
-https://github.com/highfrezh/end-to-end-brain-tumor-classification-using-MRI-Dataset.git
+### 🎯 Key Achievements
+- **94% Classification Accuracy** on the test set
+- Implemented proper data preprocessing and augmentation
+- Used Transfer Learning with VGG16 for high performance with limited data
+- Containerized with Docker + CI/CD pipeline on GitHub Actions
+- Deployed as a web application using Flask
+
+---
+
+## 🏗️ Project Structure
+
 ```
-### STEP 01- Create a conda environment after opening the repository
+├── research/                  # Experimentation notebooks
+├── src/cnnClassifier/         # Main source code
+├── templates/                 # Frontend templates
+├── config/                    # Configuration files
+├── app.py                     # Flask web application
+├── Dockerfile
+├── requirements.txt
+└── params.yaml
+```
 
+---
+
+## 🚀 How to Run Locally
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/highfrezh/end-to-end-brain-tumor-classification-using-MRI-Dataset.git
+cd end-to-end-brain-tumor-classification-using-MRI-Dataset
+```
+
+### 2. Create and activate conda environment
 ```bash
 conda create -n cnn_env python=3.11 -y
-```
-
-```bash
 conda activate cnn_env
 ```
 
-
-### STEP 02- install the requirements
+### 3. Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-
+### 4. Run the application
 ```bash
-# Finally run the following command
 python app.py
 ```
 
-Now,
+Then open your browser and go to `http://localhost:8080`
+
+---
+
+## 🐳 Docker Deployment
+
 ```bash
-open up you local host and port
+docker build -t brain-tumor-app .
+docker run -p 8080:8080 brain-tumor-app
 ```
 
+---
 
+## 📊 Results
 
+- **Test Accuracy**: **94%**
+- Model: VGG16 (Transfer Learning)
+- Techniques used: Data Augmentation, Fine-tuning, Dropout
 
-# AWS-CICD-Deployment-with-Github-Actions
+---
 
-## 1. Login to AWS console.
+## 🛠️ Technologies Used
 
-## 2. Create IAM user for deployment
+- **Deep Learning**: TensorFlow, Keras, VGG16
+- **Backend**: Flask
+- **MLOps**: DVC, MLflow (if used), GitHub Actions
+- **Deployment**: Docker, AWS EC2 + ECR
+- **Visualization**: Matplotlib, Seaborn
 
-	#with specific access
+---
 
-	1. EC2 access : It is virtual machine
+## 📌 Future Improvements
 
-	2. ECR: Elastic Container registry to save your docker image in aws
+- Experiment with newer architectures (EfficientNet, ResNet50, Vision Transformers)
+- Implement Grad-CAM for model explainability
+- Create a more interactive Streamlit/Gradio interface
+- Deploy on Hugging Face Spaces or Render
 
+---
 
-	#Description: About the deployment
+## 👨‍💻 Author
 
-	1. Build docker image of the source code
+**Ibraheem Olabintan**  
+Computer Science Graduate | AI/ML Engineer
 
-	2. Push your docker image to ECR
+---
 
-	3. Launch Your EC2 
+⭐ **Star this repository** if you found it helpful!
 
-	4. Pull Your image from ECR in EC2
-
-	5. Lauch your docker image in EC2
-
-	#Policy:
-
-	1. AmazonEC2ContainerRegistryFullAccess
-
-	2. AmazonEC2FullAccess
-
-	
-## 3. Create ECR repo to store/save docker image
-    - Save the URI:
-
-	
-## 4. Create EC2 machine (Ubuntu) 
-
-## 5. Open EC2 and Install docker in EC2 Machine:
-	
-	
-	#optinal
-
-	sudo apt-get update -y
-
-	sudo apt-get upgrade
-	
-	#required
-
-	curl -fsSL https://get.docker.com -o get-docker.sh
-
-	sudo sh get-docker.sh
-
-	sudo usermod -aG docker ubuntu
-
-	newgrp docker
-	
-# 6. Configure EC2 as self-hosted runner:
-    setting>actions>runner>new self hosted runner> choose os> then run command one by one
-
-
-# 7. Setup github secrets:
-
-    AWS_ACCESS_KEY_ID=
-
-    AWS_SECRET_ACCESS_KEY=
-
-    AWS_REGION = us-east-1
-
-    AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
-
-    ECR_REPOSITORY_NAME = simple-app
+```
